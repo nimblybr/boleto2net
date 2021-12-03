@@ -144,6 +144,11 @@ namespace Boleto2Net
             throw new NotImplementedException();
         }
 
+        public void SetaNumeroSequencial(int numeroSequencial)
+        {
+            throw new NotImplementedException();
+        }
+
         private string DescricaoOcorrenciaCnab400(string codigo)
         {
             switch (codigo)

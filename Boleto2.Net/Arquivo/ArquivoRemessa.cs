@@ -40,6 +40,9 @@ namespace Boleto2Net
                 else
                     tamanhoRegistro = 400;
 
+                if (this.Banco.Codigo == 77)
+                    this.Banco.SetaNumeroSequencial(this.NumeroArquivoRemessa);
+
                 StreamWriter arquivoRemessa = new StreamWriter(arquivo, Encoding.GetEncoding("ISO-8859-1"));
                 string strline = String.Empty;
 

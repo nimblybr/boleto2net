@@ -1160,5 +1160,10 @@ namespace Boleto2Net
                 throw new Exception("O CEP do sacado não foi informado.");
             }
         }
+
+        public void SetaNumeroSequencial(int numeroSequencial)
+        {
+            throw new NotImplementedException();
+        }
     }
 }

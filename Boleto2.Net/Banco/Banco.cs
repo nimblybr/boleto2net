@@ -18,7 +18,8 @@ namespace Boleto2Net
             [341] = BancoItau.Instance,
             [422] = BancoSafra.Instance,
             [748] = BancoSicredi.Instance,
-            [756] = BancoSicoob.Instance
+            [756] = BancoSicoob.Instance,
+            [077] = BancoInter.Instance
         };
 
         public static IBanco Instancia(int codigoBanco)

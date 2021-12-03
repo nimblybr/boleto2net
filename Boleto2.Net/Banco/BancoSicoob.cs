@@ -176,6 +176,10 @@ namespace Boleto2Net
             }
         }
 
+        public void SetaNumeroSequencial(int numeroSequencial)
+        {
+            throw new NotImplementedException();
+        }
 
         #region Remessa - CNAB240
         private string GerarHeaderRemessaCNAB240(int numeroArquivoRemessa, ref int numeroRegistroGeral)

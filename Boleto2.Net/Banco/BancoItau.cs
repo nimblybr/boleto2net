@@ -127,6 +127,11 @@ namespace Boleto2Net
             }
         }
 
+        public void SetaNumeroSequencial(int numeroSequencial)
+        {
+            throw new NotImplementedException();
+        }
+
         public void LerHeaderRetornoCNAB240(ArquivoRetorno arquivoRetorno, string registro)
         {
             throw new NotImplementedException();
