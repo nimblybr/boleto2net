@@ -63,6 +63,7 @@
     <Compile Include="Banco\BancoBrasil.cs" />
     <Compile Include="Banco\BancoCaixa.cs" />
     <Compile Include="Banco\Banco.cs" />
+    <Compile Include="Banco\BancoInter.cs" />
     <Compile Include="Banco\BancoItau.cs" />
     <Compile Include="Banco\Bancos.cs" />
     <Compile Include="Banco\BancoSafra.cs" />
@@ -74,6 +75,7 @@
     <Compile Include="Banco\Carteiras\BancoBrasil\BancoBrasilCarteira17.cs" />
     <Compile Include="Banco\Carteiras\BancoBradesco\BancoBradescoCarteira09.cs" />
     <Compile Include="Banco\Carteiras\BancoCaixa\BancoCaixaCarteiraSIG14.cs" />
+    <Compile Include="Banco\Carteiras\BancoInter\BancoInterCarteira112.cs" />
     <Compile Include="Banco\Carteiras\BancoItau\BancoItauCarteira109.cs" />
     <Compile Include="Banco\Carteiras\BancoItau\BancoItauCarteira112.cs" />
     <Compile Include="Banco\Carteiras\BancoSafra\BancoSafraCarteira1.cs" />
@@ -90,6 +92,7 @@
     </Compile>
     <Compile Include="Boleto\DemonstrativoValoresBoleto\GrupoDemonstrativo.cs" />
     <Compile Include="Boleto\DemonstrativoValoresBoleto\ItemDemonstrativo.cs" />
+    <Compile Include="Enums\TipoDesconto.cs" />
     <Compile Include="Enums\TipoDistribuicaoBoleto.cs" />
     <Compile Include="Enums\TipoDocumento.cs" />
     <Compile Include="Enums\Modulo11Algoritmo.cs" />
@@ -218,6 +221,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Como Implementar um novo Banco ou Carteira.txt" />
+    <EmbeddedResource Include="Imagens\077.jpg" />
   </ItemGroup>
   <ItemGroup />
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />

@@ -167,6 +167,10 @@ namespace Boleto2Net
             }
         }
 
+        public void SetaNumeroSequencial(int numeroSequencial)
+        {
+            throw new NotImplementedException();
+        }
 
 
         #region CNAB240

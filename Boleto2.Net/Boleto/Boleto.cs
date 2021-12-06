@@ -39,6 +39,8 @@ namespace Boleto2Net
         public string NossoNumero { get; set; } = string.Empty;
         public string NossoNumeroDV { get; set; } = string.Empty;
         public string NossoNumeroFormatado { get; set; } = string.Empty;
+        public string NumeroOperacao { get; set; } = string.Empty;
+        public string SeuNumero { get; set; } = string.Empty;
 
         public TipoCarteira TipoCarteira { get; set; } = TipoCarteira.CarteiraCobrancaSimples;
         public string Carteira { get; set; } = string.Empty;
@@ -60,8 +62,8 @@ namespace Boleto2Net
         public decimal ValorTitulo { get; set; }
 
         public bool ImprimirValoresAuxiliares { get; set; } = false;
-        public decimal ValorPago { get; set; } // ValorPago deve ser preenchido com o valor que o sacado pagou. Se n√£o existir essa informa√ß√£o no arquivo retorno, deixar zerada.
-        public decimal ValorPagoCredito { get; set; } // ValorPagoCredito deve ser preenchido com o valor que ser√° creditado na conta corrente. Se n√£o existir essa informa√ß√£o no arquivo retorno, deixar zerada.
+        public decimal ValorPago { get; set; } // ValorPago deve ser preenchido com o valor que o sacado pagou. Se n„o existir essa informaÁ„o no arquivo retorno, deixar zerada.
+        public decimal ValorPagoCredito { get; set; } // ValorPagoCredito deve ser preenchido com o valor que ser· creditado na conta corrente. Se n„o existir essa informaÁ„o no arquivo retorno, deixar zerada.
         public decimal ValorJurosDia { get; set; }
         public decimal ValorMulta { get; set; }
         public decimal ValorDesconto { get; set; }
@@ -83,14 +85,26 @@ namespace Boleto2Net
 
         // Desconto
         public DateTime DataDesconto { get; set; }
+        public TipoDesconto CodigoTipoDesconto { get; set; } = TipoDesconto.SemDesconto;
+        public decimal PercentualDesconto { get; set; }
 
         /// <summary>
-        /// Banco no qual o boleto/t√≠tulo foi quitado/recolhido
+        /// Detalhe Descontos adicionais para bancos que possuir (Inter)
+        /// </summary>
+        public DateTime DataLimiteDesconto2 { get; set; }
+        public decimal ValorDesconto2 { get; set; }
+        public decimal PercentualDesconto2 { get; set; }
+        public DateTime DataLimiteDesconto3 { get; set; }
+        public decimal ValorDesconto3 { get; set; }
+        public decimal PercentualDesconto3 { get; set; }
+
+        /// <summary>
+        /// Banco no qual o boleto/tÌtulo foi quitado/recolhido
         /// </summary>
         public string BancoCobradorRecebedor { get; set; }
         
         /// <summary>
-        /// Ag√™ncia na qual o boleto/t√≠tulo foi quitado/recolhido
+        /// AgÍncia na qual o boleto/tÌtulo foi quitado/recolhido
         /// </summary>
         public string AgenciaCobradoraRecebedora { get; set; }
 
@@ -114,6 +128,12 @@ namespace Boleto2Net
         public string MensagemArquivoRemessa { get; set; } = string.Empty;
         public string RegistroArquivoRetorno { get; set; } = string.Empty;
 
+        /// <summary>
+        /// Mensagens adicionais para bancos que possui estes campos (Inter)
+        /// </summary>
+        public string ComplementoInstrucao4 { get; set; } = string.Empty;
+        public string ComplementoInstrucao5 { get; set; } = string.Empty;
+
         public IBanco Banco { get; set; }
         public Sacado Sacado { get; set; } = new Sacado();
         public Sacado Avalista { get; set; } = new Sacado();
@@ -125,27 +145,27 @@ namespace Boleto2Net
 
         public void ValidarDados()
         {
-            // Banco Obrigat√≥rio
+            // Banco ObrigatÛrio
             if (Banco == null)
-                throw new Exception("Boleto n√£o possui Banco.");
+                throw new Exception("Boleto n„o possui Banco.");
 
-            // Cedente Obrigat√≥rio
+            // Cedente ObrigatÛrio
             if (Banco.Cedente == null)
-                throw new Exception("Boleto n√£o possui cedente.");
+                throw new Exception("Boleto n„o possui cedente.");
 
-            // Conta Banc√°ria Obrigat√≥ria
+            // Conta Banc·ria ObrigatÛria
             if (Banco.Cedente.ContaBancaria == null)
-                throw new Exception("Boleto n√£o possui conta banc√°ria.");
+                throw new Exception("Boleto n„o possui conta banc·ria.");
 
-            // Sacado Obrigat√≥rio
+            // Sacado ObrigatÛrio
             if (Sacado == null)
-                throw new Exception("Boleto n√£o possui sacado.");
+                throw new Exception("Boleto n„o possui sacado.");
 
-            // Verifica se data do processamento √© valida
+            // Verifica se data do processamento È valida
             if (DataProcessamento == DateTime.MinValue)
                 DataProcessamento = DateTime.Now;
 
-            // Verifica se data de emiss√£o √© valida
+            // Verifica se data de emiss„o È valida
             if (DataEmissao == DateTime.MinValue)
                 DataEmissao = DateTime.Now;
 

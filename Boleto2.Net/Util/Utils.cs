@@ -3,6 +3,7 @@ using System.ComponentModel;
 using System.Drawing;
 using System.Drawing.Imaging;
 using System.Globalization;
+using System.Linq;
 
 namespace Boleto2Net
 {
@@ -255,6 +256,19 @@ namespace Boleto2Net
             drawing.Dispose();
 
             return img;
+        }
+
+        /// <summary>
+        /// Retorna uma string sem espaços no começo ou fim e aceita campos nulos
+        /// </summary>
+        /// <param name="text"></param>
+        /// <returns></returns>
+        public static string TrimOrNull(this string text)
+        {
+            if (text == null)
+                return null;
+
+            return text.Trim();
         }
     }
 }

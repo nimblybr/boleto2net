@@ -176,6 +176,11 @@ namespace Boleto2Net
             }
         }
 
+        public void SetaNumeroSequencial(int numeroSequencial)
+        {
+            throw new NotImplementedException();
+        }
+
         #region SIG14 - Funções de apoio
 
         #region CNAB 400

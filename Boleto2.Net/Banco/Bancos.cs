@@ -10,6 +10,7 @@ namespace Boleto2Net
         Itau = 341,
         Safra = 422,
         Sicredi = 748,
-        Sicoob = 756
+        Sicoob = 756,
+        Inter = 077
     }
 }
