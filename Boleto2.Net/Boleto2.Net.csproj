@@ -232,4 +232,5 @@
   <Target Name="AfterBuild">
   </Target>
   -->
+  <Target Name="pipelinePreDeployCopyAllFilesToOneFolder" />
 </Project>
