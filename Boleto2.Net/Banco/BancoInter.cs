@@ -271,7 +271,7 @@ namespace Boleto2Net
                     reg.Adicionar(TTiposDadoEDI.ediNumericoSemSeparador_, 0066, 001, 0, "2", '0');
                     reg.Adicionar(TTiposDadoEDI.ediAlphaAliEsquerda_____, 0067, 013, 0, Empty, '0');
                     reg.Adicionar(TTiposDadoEDI.ediNumericoSemSeparador_, 0080, 004, 2, boleto.PercentualMulta, '0');
-                    DateTime dataMulta = boleto.DataMulta >= boleto.DataVencimento ? boleto.DataMulta : boleto.DataVencimento;
+                    DateTime dataMulta = boleto.DataMulta >= boleto.DataVencimento ? boleto.DataMulta : boleto.DataVencimento.AddDays(1);
                     reg.Adicionar(TTiposDadoEDI.ediDataDDMMAA___________, 0084, 006, 0, dataMulta, '0');
                 }
                 //Valor da multa informado em valor
@@ -279,7 +279,7 @@ namespace Boleto2Net
                     reg.Adicionar(TTiposDadoEDI.ediNumericoSemSeparador_, 0066, 001, 0, "1", '0');
                     reg.Adicionar(TTiposDadoEDI.ediNumericoSemSeparador_, 0067, 013, 0, boleto.ValorMulta, '0');
                     reg.Adicionar(TTiposDadoEDI.ediAlphaAliEsquerda_____, 0080, 004, 0, Empty, '0');
-                    DateTime dataMulta = boleto.DataMulta >= boleto.DataVencimento ? boleto.DataMulta : boleto.DataVencimento;
+                    DateTime dataMulta = boleto.DataMulta >= boleto.DataVencimento ? boleto.DataMulta : boleto.DataVencimento.AddDays(1);
                     reg.Adicionar(TTiposDadoEDI.ediDataDDMMAA___________, 0084, 006, 0, dataMulta, '0');
                 }
                 //Sem Multa
@@ -307,7 +307,7 @@ namespace Boleto2Net
                     reg.Adicionar(TTiposDadoEDI.ediNumericoSemSeparador_, 0160, 001, 0, "2", '0');
                     reg.Adicionar(TTiposDadoEDI.ediAlphaAliEsquerda_____, 0161, 013, 0, Empty, '0');
                     reg.Adicionar(TTiposDadoEDI.ediNumericoSemSeparador_, 0174, 004, 2, boleto.PercentualJurosDia, '0');
-                    DateTime dataJuros = boleto.DataJuros >= boleto.DataVencimento ? boleto.DataJuros : boleto.DataVencimento;
+                    DateTime dataJuros = boleto.DataJuros >= boleto.DataVencimento ? boleto.DataJuros : boleto.DataVencimento.AddDays(1);
                     reg.Adicionar(TTiposDadoEDI.ediDataDDMMAA___________, 0178, 006, 0, dataJuros, '0');
                 }
                 //Valor da juros/mora informado em valor
@@ -316,7 +316,7 @@ namespace Boleto2Net
                     reg.Adicionar(TTiposDadoEDI.ediNumericoSemSeparador_, 0160, 001, 0, "1", '0');
                     reg.Adicionar(TTiposDadoEDI.ediNumericoSemSeparador_, 0161, 013, 0, boleto.ValorJurosDia, '0');
                     reg.Adicionar(TTiposDadoEDI.ediAlphaAliEsquerda_____, 0174, 004, 0, Empty, '0');
-                    DateTime dataJuros = boleto.DataMulta >= boleto.DataVencimento ? boleto.DataJuros : boleto.DataVencimento;
+                    DateTime dataJuros = boleto.DataMulta >= boleto.DataVencimento ? boleto.DataJuros : boleto.DataVencimento.AddDays(1);
                     reg.Adicionar(TTiposDadoEDI.ediDataDDMMAA___________, 0178, 006, 0, dataJuros, '0');
                 }
                 //Sem juros/mora
