@@ -194,9 +194,10 @@ namespace Boleto2Net
                 boleto.EspecieDocumento = TipoEspecieDocumento.OU;
 
                 //Valores do Título
-                boleto.ValorTitulo = Convert.ToDecimal(registro.Substring(124, 13)) / 100;
+                if(!IsNullOrWhiteSpace(registro.Substring(124, 13)))
+                    boleto.ValorTitulo = Convert.ToDecimal(registro.Substring(124, 13)) / 100;
                 decimal valorPago = 0;
-                if (registro.Substring(159, 13).Trim() != "")
+                if (!IsNullOrWhiteSpace(registro.Substring(159, 13)))
                     valorPago = Convert.ToDecimal(registro.Substring(159, 13));
                 boleto.ValorPagoCredito = valorPago / 100;
 
